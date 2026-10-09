@@ -2,6 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+<script>
+  /* Caducidad: la propuesta se ve 10 días desde su envío (abril de 2026, publicada el 13-abr; el día de envío cuenta), hasta el 22-abr-2026
+     a las 23:59 de Madrid. Desde entonces, caducada.html. En local no caduca; ?caducada lo simula. */
+  (function () {
+    var fin = Date.UTC(2026, 3, 22, 22, 0);   // 23-abr-2026 00:00 en Madrid
+    if (/[?&]caducada\b/.test(location.search) || (/github\.io$/.test(location.hostname) && Date.now() >= fin)) {
+      document.documentElement.style.display = 'none';
+      location.replace('caducada.html');
+    }
+  })();
+</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería — Cruz Blanca de Vallecas</title>
     <meta name="description" content="Galería de imágenes de Cruz Blanca de Vallecas. Nuestros mejores momentos, platos premiados, visitas ilustres y el día a día de nuestro restaurante.">
